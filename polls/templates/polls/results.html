@@ -1,4 +1,8 @@
-<h1>{{ question.question_text }}</h1>
+{% load staticfiles %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}" />
+
+<div class={{ question.decoration }}>{{ question.question_text }}</div>
 
 <ul>
 {% for choice in question.choice_set.all %}

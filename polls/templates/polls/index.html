@@ -1,3 +1,14 @@
+{% load staticfiles %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}" />
+
+<form action="{% url 'polls:find' %}" method="post">
+    {% csrf_token %}
+    <input type="text" name="question_text" id="question_text" />
+    <label for="question_text">Find a question</label><br />
+<input type="submit" value="Find" />
+</form>
+
 {% if latest_question_list %}
     <ul>
     {% for question in latest_question_list %}
